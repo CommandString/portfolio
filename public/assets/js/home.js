@@ -52,6 +52,7 @@ $(document).ready(() => {
 
     $(".langs- .card .progress").progress();
 
+    secretFound = false;
     switchingImages = false;
     $("#logo img").click(() => {
         if (switchingImages) return;
@@ -65,6 +66,17 @@ $(document).ready(() => {
             nse.transition("horizontal flip", null, 100);
             cse.css("display", "none");
             switchingImages = false;
+
+            if (!secretFound) {
+                $("body").toast({
+                    title: "You found a secret!",
+                    showIcon: 'user secret',
+                    class: "violet centered",
+                    position: "top attached"
+                });
+                secretFound = true;
+            }
+
         }, 100);
     });
 });
