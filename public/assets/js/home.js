@@ -51,4 +51,20 @@ $(document).ready(() => {
     });
 
     $(".langs- .card .progress").progress();
+
+    switchingImages = false;
+    $("#logo img").click(() => {
+        if (switchingImages) return;
+
+        switchingImages = true;
+        
+        cse = $(`#logo img[pic="${$('#logo img.visible').attr("pic")}"]`);
+        nse = $(`#logo img[pic="${$('#logo img.hidden').attr("pic")}"]`);
+
+        cse.transition("horizontal flip", () => {
+            nse.transition("horizontal flip", null, 100);
+            cse.css("display", "none");
+            switchingImages = false;
+        }, 100);
+    });
 });
