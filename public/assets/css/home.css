@@ -1,9 +1,134 @@
 .segment {
-    height: 100vh;
+    min-height: 120vh;
     border-radius: 0 !important;
-    padding-top: 300px !important;
+    background: linear-gradient(90deg, #000000, #8800FF60, #000000) !important;
 }
 
-.ui.header {
-    display: none;
+.masthead {
+    padding-top: 120px !important;
+}
+
+body {
+    background-color: black;
+}
+
+#name .ui.header {
+    margin-bottom: 0;
+}
+
+#logo > .image {
+    height: 250px;
+    width: auto;
+}
+
+.muted.text {
+    opacity: 0.6;
+}
+
+#name > .header {
+    font-size: 40px;
+}
+
+#name > span {
+    font-size: 25px;
+}
+
+#name, #logo {
+    margin: 0 !important;
+}
+
+#name {
+    text-align: left;
+    padding-top: 90px;
+}
+
+#logo {
+    text-align: right;
+}
+
+.buttons- {
+    margin-bottom: 20px;
+}
+
+.button-.column {
+    border-width: 1px;
+    border-color: white;
+    border-style: solid;
+    padding: 15px;
+    font-size: 1.5em;
+    margin: 10px;
+    border-radius: 4px;
+    transition: opacity 2s, 0.6s;
+    cursor: pointer;
+    opacity: 0;
+}
+
+.button-.column .divider {
+    font-size: inherit;
+}
+
+.button-.column.left {
+    background: linear-gradient(-90deg, transparent 50%, #8800FF);
+    background-size: 200% 200%;
+    background-position-x: 100%;
+}
+
+.button-.column.left:hover {
+    background-position-x: 0%;
+}
+
+.button-.column.right {
+    background: linear-gradient(90deg, transparent 50%, #8800FF);
+    background-size: 200% 200%;
+}
+
+.button-.column.right:hover {
+    background-position-x: 100%;
+}
+
+.button-.column.up {
+    background: linear-gradient(transparent 50%, #8800FF);
+    background-size: 200% 200%;
+}
+
+.button-.column.up:hover {
+    background-position-y: 100%;
+}
+
+.button-.disabled {
+    opacity: 0.5 !important;
+}
+
+.left-.text-.column {
+    background: linear-gradient(90deg, var(--start), var(--end));
+}
+
+.middle-.text-.column {
+    background: linear-gradient(-90deg, var(--end), var(--start), var(--end));
+}
+
+.right-.text-.column {
+    background: linear-gradient(-90deg, var(--start), var(--end));
+}
+
+.text-.column {
+    --start: #8800FF10;
+    --end: #8800FF50;
+    border-radius: 5px;
+    margin: 0 5px;
+}
+
+.langs- .card img {
+    height: 150px !important;
+    width: auto !important;
+    margin: auto;
+}
+
+.socials- .card img {
+    height: 100px !important;
+    width: auto !important;
+}
+
+.socials- .card .image {
+    width: fit-content !important;
 }

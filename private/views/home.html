@@ -1,13 +1,151 @@
 {% extends "templates/basic.html" %}
 
 {% block head %}
-<title>A New Start</title>
+<title>Command_String</title>
 <link rel="stylesheet" href="/assets/css/home.css">
 <script src="/assets/js/home.js"></script>
 {% endblock %}
 
 {% block body %}
-<div class="ui inverted segment">
-    <h1 class="ui centered massive header">Welcome to the start of your new website!</h1>
+<div class="ui inverted center segment">
+    <div class="ui center aligned grid masthead">
+        <div class="row">
+            <div id="logo" class="eight wide column">
+                <img src="/assets/img/logo.png" class="ui avatar small image" alt="Command_String logo">
+            </div>
+            <div id="name" class="eight wide left column">
+                <h1 class="ui inverted header" data-write="Command_String"></h1>
+                <span class="ui white muted text" data-write="Michael Snedeker"></span>
+            </div>
+        </div>
+        <div class="row buttons-">
+            <div class="ui sixteen wide column">
+                <div class="ui equal width stackable grid">
+                    <div class="row">
+                        <div scrollTo="#aboutme" class="column up button-">
+                            <div class="ui inverted horizontal divider">
+                                About Me
+                            </div>
+                        </div>
+                        <div scrollTo="#languages" class="column up button-">
+                            <div class="ui inverted horizontal divider">
+                                Coding Languages
+                            </div>
+                        </div>
+                        <div class="column up button-" scrollTo="#packages">
+                            <div class="ui inverted horizontal divider">
+                                Packages
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="column button- up" scrollTo="#socials">
+                            <div class="ui inverted horizontal divider">
+                                Socials
+                            </div>
+                        </div>
+                        <div class="column button- disabled">
+                            <div class="ui inverted horizontal divider">
+                                Projects
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="ui horizontal massive inverted divider" id="aboutme">About Me</div>
+    <br>
+    <div class="ui wide container">
+        <div class="ui centered stackable grid">
+            <div class="five wide column left- text-">
+                <h2 class="ui inverted header">The start of my computer endeavor</h2>
+                <p>I got my first computer at 6 years old, a <a href="/assets/img/dell.png" target="_blank">Dell
+                        Latitude</a> with Windows XP. After 3 years of getting used to computers and learning a decent
+                    bit of how to use them, my father taught me how to build a desktop. <i>Funny story because we
+                        accidentally used a dead motherboard</i>, but after I turned the computer on I knew from that
+                    moment that I loved computers. About a year later he opened up a business for repairing computers,
+                    phones, etc and I mostly did computer jobs as I didn't even have a phone at that point but
+                    eventually we did have to close down the business (for reasons irrelevant to the business itself).
+                </p>
+            </div>
+            <div class="five wide column middle- text-">
+                <h2 class="ui inverted header">startCoding("November 27th 2020");</h2>
+                <p>Around late November in 2020 I was playing on a SA-MP roleplay server and I had just become the
+                    leader of the LEO (Law Enforcement Officer) faction. I wanted to do something no other Chief had
+                    done and wanted to build a mobile database to make the game more immersive. I initially tried using
+                    Google Sites but I reached the limits of that very quickly, so I then turned and learned HTML, CSS,
+                    PHP, and Javascript. Of course this was no easy feat and I'm still learning more and more about
+                    making websites but I've come a long way in these past two years and now and venturing outside of
+                    making websites.</p>
+            </div>
+            <div class="five wide column right- text-">
+                <h2 class="ui inverted header">What do I do outside coding?</h2>
+                <p>Besides coding, I usually play Clone Hero, Beat Saber, and the new RWBY Arrowfell game (already got
+                    100% completion 😅). Also, I can sometimes be seen reading but it's not as much nowadays. For the
+                    most part I tried to be productive with my time by either learning something new or mastering
+                    something I'm already good at.</p>
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="ui horizontal massive inverted divider" id="languages">Coding Languages</div>
+    <div class="ui wide container">
+        <div class="ui inverted cards centered langs-">
+            {% for lang in langs %}
+            <div class="ui small card">
+                <div class="image">
+                    <img src="{{ lang.img }}">
+                </div>
+                <div class="content">
+                    <div class="header">{{ lang.name }}</div>
+                    <div class="description">
+                        {{ lang.description }}
+                    </div>
+                </div>
+                <div class="extra content">
+                    <div class="ui {{ lang.color }} inverted progress" data-percent="{{ lang.percent }}">
+                        <div class="bar"></div>
+                        <div class="label">{{ lang.percent }}% learned</div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="ui horizontal massive inverted divider" id="packages">Packages</div>
+    <div class="ui wide container">
+        <div class="ui inverted cards centered">
+            {% for package in packages %}
+            <div onclick="window.open('{{ package.repo }}', '_blank');" class="ui small link card">
+                <div class="content">
+                    <div class="header">{{ package.name }}</div>
+                    <div class="meta">{{ package.version }}</div>
+                    <div class="description">
+                        {{ package.description }}
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="ui horizontal massive inverted divider" id="socials">Socials</div>
+    <div class="ui wide container">
+        <div class="ui inverted cards centered socials-">
+            {% for social in socials %}
+            <div class="ui horizontal card">
+                <div class="image">
+                    <img src="{{ social.img }}">
+                </div>
+                <div class="content">
+                    <div class="header"><a target="_blank" href="{{ social.url }}">{{ social.username }}</a></div>
+                    <div class="meta">
+                        <span class="category">{{ social.name }}</span>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
 </div>
 {% endblock %}
