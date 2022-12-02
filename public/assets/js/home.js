@@ -76,7 +76,16 @@ $(document).ready(() => {
                 });
                 secretFound = true;
             }
-
         }, 100);
+    });
+
+    $("[showImage]").click((e) => {
+
+        e = $(e.currentTarget);
+
+        $("body").modal({
+            content: `<img src='${e.attr("showImage")}' class='ui centered large image'>`,
+            class: "image- inverted"
+        }).modal("show");
     });
 });
