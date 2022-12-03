@@ -66,7 +66,7 @@
         <div class="ui centered stackable grid">
             <div class="five wide column left- text-">
                 <h2 class="ui inverted header">The start of my computer endeavor</h2>
-                <p>I got my first computer at 6 years old, a <a style="cursor: pointer;" showImage="/assets/img/dell.png" target="_blank">Dell
+                <p>I got my first computer at 6 years old, a <a showImage="/assets/img/dell.png" target="_blank">Dell
                         Latitude</a> with Windows XP. After 3 years of getting used to computers and learning a decent
                     bit of how to use them, my father taught me how to build a desktop. <i>Funny story because we
                         accidentally used a dead motherboard</i>, but after I turned the computer on I knew from that
@@ -87,7 +87,7 @@
             </div>
             <div class="five wide column right- text-">
                 <h2 class="ui inverted header">What do I do outside coding?</h2>
-                <p>Besides coding, I usually play Clone Hero, Beat Saber, and the new RWBY Arrowfell game (already got
+                <p>Besides coding, I usually play <a showVideo="/assets/videos/devil.mp4">Clone Hero</a>, Beat Saber, and the new RWBY Arrowfell game (already got
                     100% completion 😅). Also, I can sometimes be seen reading but not as much nowadays. For the
                     most part I tried to be productive with my time by either learning something new or mastering
                     something I'm already good at.</p>
@@ -100,7 +100,7 @@
         <div class="ui inverted cards centered langs-">
             {% for lang in langs %}
             <div class="ui small card">
-                <div class="image">
+                <div showImage="{{ lang.img }}" class="image">
                     <img src="{{ lang.img }}">
                 </div>
                 <div class="content">
@@ -140,7 +140,7 @@
         <div class="ui inverted cards centered socials-">
             {% for social in socials %}
             <div class="ui horizontal card">
-                <div class="image">
+                <div showImage="{{ social.img }}" class="image">
                     <img src="{{ social.img }}">
                 </div>
                 <div class="content">
