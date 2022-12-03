@@ -4,6 +4,10 @@
     background: linear-gradient(90deg, #000000, #8800FF60, #000000) !important;
 }
 
+a {
+    cursor: pointer;
+}
+
 .masthead {
     padding-top: 120px !important;
 }
@@ -137,6 +141,7 @@ body {
 .ui.image-.modal > .content {
     width: fit-content;
     padding: 0 !important;
+    background-color: transparent;
 }
 
 .ui.image-.modal > .header,
