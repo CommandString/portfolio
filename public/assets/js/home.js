@@ -80,12 +80,27 @@ $(document).ready(() => {
     });
 
     $("[showImage]").click((e) => {
-
         e = $(e.currentTarget);
 
         $("body").modal({
             content: `<img src='${e.attr("showImage")}' class='ui centered large image'>`,
             class: "image- inverted"
         }).modal("show");
+    });
+
+    $("[showVideo]").click((e) => {
+        e = $(e.currentTarget);
+
+        $("body").modal({
+            content: `<video controls style="width: 50%; height: auto; margin: auto;"><source src='${e.attr("showVideo")}'></video>`,
+            class: "image- inverted playvideo",
+            classContent: "centered"
+        }).modal("show");
+
+        $(".playvideo video").on("ended", () => {
+            setTimeout(() => {
+                $(".playvideo").modal("hide");
+            }, 500);
+        });
     });
 });
