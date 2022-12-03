@@ -13,7 +13,8 @@ class Files {
         "jpeg" => "image/jpeg",
         "gif" => "image/gif",
         "ico" => "image/x-icon",
-        "ttf" => "font/ttf"
+        "ttf" => "font/ttf",
+        "mp4" => "video/mp4"
     ];
 
     public static function handle(ResponseInterface $res): ResponseInterface
