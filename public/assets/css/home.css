@@ -14,6 +14,7 @@ a {
 
 body {
     background-color: black;
+    height: 110%;
 }
 
 #name .ui.header {
@@ -23,6 +24,7 @@ body {
 #logo > .image {
     height: 250px;
     width: auto;
+    cursor: pointer;
 }
 
 .muted.text {
@@ -162,6 +164,10 @@ a:hover {
     #name > .header {
         font-size: 30px;
     }
+    
+    #iam {
+        font-size: 25px !important;
+    }
 
     #name > span {
         font-size: 15px;
@@ -180,6 +186,10 @@ a:hover {
     #name > .header {
         font-size: 20px;
     }
+    
+    #iam {
+        font-size: 23px !important;
+    }
 
     #name > span {
         font-size: 13px;
@@ -194,11 +204,16 @@ a:hover {
     }
 }
 
+#iam {
+    color: white;
+    font-size: 30px;
+}
+
 @media screen and (max-width: 845px) {
-    .button-.column {
+    .ui.stackable.grid > .row > .button-.column {
         width: 100% !important;
-        padding: 5px 0;
-        margin-bottom: 10px !important;
+        padding: 5px 0 !important;
+        margin: 10px 5px 0 10px !important;
     }
 
     .buttons- .row {
@@ -206,10 +221,14 @@ a:hover {
     }
 }
 
-@media screen and (max-width: 903px) {
-    .text-.column {
+@media screen and (max-width: 893px) {
+    .ui.stackable.grid > .text-.column {
         width: 100% !important;
-        padding: 5px 0;
-        margin-top: 10px !important;
+        margin: 10px 5px 0 10px !important;
+    }
+
+    .text-.column .header,
+    .text-.column p {
+        margin: 0 10px;
     }
 }
