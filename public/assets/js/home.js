@@ -39,7 +39,7 @@ $(document).ready(() => {
                     callback();
                     clearInterval(check);
                 }
-            }, 250);   
+            }, 250);
         } else {
             clearInterval(check);
         }
@@ -51,9 +51,9 @@ $(document).ready(() => {
 
     $("[scrollTo]").click((e) => {
         scrollTo({
-            top: $(e.currentTarget.getAttribute("scrollTo")).get(0).offsetTop-40,
+            top: $(e.currentTarget.getAttribute("scrollTo")).get(0).offsetTop - 40,
             behavior: 'smooth'
-          });
+        });
     });
 
     $(".langs- .card .progress").progress();
@@ -72,7 +72,7 @@ $(document).ready(() => {
 
 
         logoSide = (logoSide) ? false : true;
-        
+
         cse = $(`#logo img[pic="${$('#logo img.visible').attr("pic")}"]`);
         nse = $(`#logo img[pic="${$('#logo img.hidden').attr("pic")}"]`);
 
@@ -114,7 +114,7 @@ $(document).ready(() => {
                         position: "top attached"
                     });
                 }
-                
+
                 console.log(`You've flipped my logo ${timesFlipped} time(s)`);
 
                 timesFlipped++;
@@ -197,7 +197,7 @@ $(document).ready(() => {
         function addText(text) {
             element.text(element.text() + text);
         }
-        
+
         wordIterator = 0;
         word = words[wordIterator++];
 
@@ -222,7 +222,7 @@ $(document).ready(() => {
                 }
 
                 addText(letter);
-            }, 2000/letters.length);
+            }, 2000 / letters.length);
         }
 
         function deleteWord() {
@@ -250,12 +250,12 @@ $(document).ready(() => {
                     return;
                 }
 
-                if (element.text().charAt(element.text().length-1) == " ") {
+                if (element.text().charAt(element.text().length - 1) == " ") {
                     element.text(element.text().slice(0, -1));
                 }
 
                 element.text(element.text().slice(0, -1));
-            }, 400/word.length)
+            }, 400 / word.length)
         }
 
         writeWord();
