@@ -2,6 +2,10 @@ $(document).ready(() => {
     $(".button-.column").css("opacity", 1);
 
     function writeElement(element, callback = null) {
+        if (callback !== null) {
+            iam();
+        }
+
         textToWrite = element.attr("data-write").split("");
 
         i = 0;
@@ -36,6 +40,8 @@ $(document).ready(() => {
                     clearInterval(check);
                 }
             }, 250);   
+        } else {
+            clearInterval(check);
         }
     }
 
@@ -103,4 +109,85 @@ $(document).ready(() => {
             }, 500);
         });
     });
+
+    function iam() {
+        words = [
+            "Website Developer",
+            "Programmer",
+            "Fret Smasher",
+            "Assistant Teacher",
+            "Senior High School Student",
+            "Discord Bot Developer",
+            "PHP Fanatic",
+            "18 years old"
+        ];
+
+        element = $("#iam-text");
+
+        function addText(text) {
+            element.text(element.text() + text);
+        }
+        
+        wordIterator = 0;
+        word = words[wordIterator++];
+
+        function writeWord() {
+            letterIterator = 0;
+            letters = word.split("");
+
+            interval2 = setInterval(() => {
+                letter = letters[letterIterator++];
+
+                if (typeof letter == "undefined") {
+                    clearInterval(interval2);
+                    setTimeout(() => {
+                        deleteWord();
+                    }, 400);
+                    return;
+                }
+
+                if (letter == " ") {
+                    addText(letter)
+                    letter = letters[letterIterator++];
+                }
+
+                addText(letter);
+            }, 2000/letters.length);
+        }
+
+        function deleteWord() {
+            interval2 = setInterval(() => {
+                if (element.text().split("").length == 0) {
+                    clearInterval(interval2);
+                    word = words[wordIterator++];
+
+                    if (typeof word == "undefined") {
+                        wordIterator = 0;
+                        word = words[wordIterator++];
+                    }
+
+                    vowels = ["a", "e", "i", "o", "u"];
+
+                    if (vowels.includes(word.charAt(0).toLowerCase())) {
+                        $("#a").text("an");
+                    } else if (word.charAt(0) != "1") {
+                        $("#a").text("a");
+                    } else {
+                        $("#a").text("");
+                    }
+
+                    writeWord();
+                    return;
+                }
+
+                if (element.text().charAt(element.text().length-1) == " ") {
+                    element.text(element.text().slice(0, -1));
+                }
+
+                element.text(element.text().slice(0, -1));
+            }, 400/word.length)
+        }
+
+        writeWord();
+    }
 });
