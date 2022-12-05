@@ -58,12 +58,20 @@ $(document).ready(() => {
 
     $(".langs- .card .progress").progress();
 
-    secretFound = false;
+    timesFlipped = 0;
     switchingImages = false;
+    logoSide = true
     $("#logo img").click(() => {
         if (switchingImages) return;
 
         switchingImages = true;
+
+        setTimeout(() => {
+            switchingImages = false;
+        }, 900)
+
+
+        logoSide = (logoSide) ? false : true;
         
         cse = $(`#logo img[pic="${$('#logo img.visible').attr("pic")}"]`);
         nse = $(`#logo img[pic="${$('#logo img.hidden').attr("pic")}"]`);
@@ -71,16 +79,45 @@ $(document).ready(() => {
         cse.transition("horizontal flip", () => {
             nse.transition("horizontal flip", null, 100);
             cse.css("display", "none");
-            switchingImages = false;
 
-            if (!secretFound) {
-                $("body").toast({
-                    title: "You found a secret!",
-                    showIcon: 'user secret',
-                    class: "violet centered",
-                    position: "top attached"
-                });
-                secretFound = true;
+            if (!logoSide) {
+                if (timesFlipped == 0) {
+                    $("body").toast({
+                        title: "You found a secret!",
+                        showIcon: 'user secret',
+                        class: "violet centered",
+                        position: "top attached"
+                    });
+                } else if (timesFlipped == 1) {
+                    $("body").toast({
+                        title: "You already found the secret though",
+                        class: "violet centered",
+                        position: "top attached"
+                    });
+                } else if (timesFlipped == 3) {
+                    $("body").toast({
+                        title: "You're making me dizzy",
+                        class: "violet centered",
+                        position: "top attached",
+                        displayTime: 3000
+                    });
+                } else if (timesFlipped == 10) {
+                    $("body").toast({
+                        title: "Aren't you bored yet?",
+                        class: "violet centered",
+                        position: "top attached"
+                    });
+                } else if (timesFlipped == 100) {
+                    $("body").toast({
+                        title: "Please stop...",
+                        class: "violet centered",
+                        position: "top attached"
+                    });
+                }
+                
+                console.log(`You've flipped my logo ${timesFlipped} time(s)`);
+
+                timesFlipped++;
             }
         }, 100);
     });
@@ -94,18 +131,51 @@ $(document).ready(() => {
         }).modal("show");
     });
 
+    played = 0;
     $("[showVideo]").click((e) => {
         e = $(e.currentTarget);
 
         $("body").modal({
-            content: `<video controls style="width: 50%; height: auto; margin: auto;"><source src='${e.attr("showVideo")}'></video>`,
+            content: `<video controls style="width: 80%; height: auto; margin: auto;"><source src='${e.attr("showVideo")}'></video>`,
             class: "image- inverted playvideo",
-            classContent: "centered"
+            classContent: "centered",
+            onVisible: () => {
+                $(".playvideo video").trigger("play");
+            }
         }).modal("show");
 
         $(".playvideo video").on("ended", () => {
             setTimeout(() => {
                 $(".playvideo").modal("hide");
+
+                if (played == 0) {
+                    $("body").toast({
+                        title: "Yes that was me",
+                        message: "For those who are interested the song is The Devil Went Down to Georgia by Steve Ouimette",
+                        class: "violet centered",
+                        position: "top attached",
+                        displayTime: 5500
+                    });
+                } else if (played == 1) {
+                    $("body").toast({
+                        title: "Again?",
+                        message: "I do have a couple videos of me playing on my youtube channel if you're interested",
+                        class: "violet centered",
+                        position: "top attached"
+                    })
+                } else if (played == 5) {
+                    $("body").toast({
+                        title: "This is the fifth time!",
+                        message: "I'm gonna redirect you to my youtube channel now XD",
+                        class: "violet centered",
+                        position: "top attached",
+                        onHidden: () => {
+                            window.open("https://www.youtube.com/channel/UCVDEwnond4DR4w_dmjqLFSQ", "_blank");
+                        }
+                    });
+                }
+
+                played++
             }, 500);
         });
     });
