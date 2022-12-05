@@ -1,6 +1,6 @@
 # Command_String Portfolio Website
 
-My portfolio website
+My portfolio website.
 # Setup on local host
 
 1. `git clone https://github.com/commandstring/portfolio`
